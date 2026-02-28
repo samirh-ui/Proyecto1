@@ -96,6 +96,61 @@ Año Nacimiento: 2002
 
 ---
 
+## Diagramas UML
+
+### Diagrama de Clases
+
+```mermaid
+classDiagram
+    class Persona {
+        +String nombre
+        +String apellido
+        -int numeroDocumento
+        -int añoNacimiento
+        +Persona(String, String, String, int)
+        +imprimir() void
+    }
+
+    class Main {
+        +{static} main(String[]) void
+    }
+
+    Main --> Persona : crea
+```
+
+### Diagrama de Secuencia - Ejecución del Programa
+
+```mermaid
+sequenceDiagram
+    participant Main
+    participant Persona1 as Persona (Samir)
+    participant Persona2 as Persona (Alexandre)
+    
+    Main->>Persona1: new Persona("Samir", "Hurtado", "1006287213", 2003)
+    activate Persona1
+    Persona1-->>Main: objeto creado
+    deactivate Persona1
+    
+    Main->>Persona2: new Persona("alexandre", "Valencia", "1007500723", 2002)
+    activate Persona2
+    Persona2-->>Main: objeto creado
+    deactivate Persona2
+    
+    Main->>Main: println("Datos de persona1:")
+    Main->>Persona1: imprimir()
+    activate Persona1
+    Persona1->>Persona1: println(nombre, apellido, etc)
+    deactivate Persona1
+    
+    Main->>Main: println("Datos de persona2:")
+    Main->>Persona2: imprimir()
+    activate Persona2
+    Persona2->>Persona2: println(nombre, apellido, etc)
+    deactivate Persona2
+```
+
+---
+
 ## Cómo Ejecutar
 
 ### Compilar
