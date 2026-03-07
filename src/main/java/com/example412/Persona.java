@@ -9,12 +9,19 @@ public class Persona {
     private int numeroDocumento;
     private int añoNacimiento;
 
+    // atributos nuevos
+     private String paisNaciiento;
+        private String genero;
+
     // Constructor
-    public Persona(String nombre, String apellidos, String numeroDocumentoIdentidad, int anioNacimiento) {
+    public Persona(String nombre, String apellidos, String numeroDocumentoIdentidad, int añoNacimiento, String paisNaciiento, String genero) {
         this.nombre = nombre;
         this.apellido = apellidos;
         this.numeroDocumento = Integer.parseInt(numeroDocumentoIdentidad);
-        this.añoNacimiento = anioNacimiento;
+        this.añoNacimiento = añoNacimiento;
+        this.paisNaciiento= paisNaciiento;
+        this.genero= genero;
+
 
     }
 
@@ -25,6 +32,8 @@ public class Persona {
         System.out.println("Número Documento: " + numeroDocumento);
         System.out.println("Año Nacimiento: " + añoNacimiento);
         System.out.println("Edad: " + calcularEdad() + " años");
+        System.out.println("País de Nacimiento: " + paisNaciiento);
+        System.out.println("Género: " + genero);
         System.out.println("----------------------------");
     }
 
@@ -32,5 +41,5 @@ public class Persona {
         int añoActual = Year.now().getValue();
         return añoActual - añoNacimiento;
     }
-    
+
 }
