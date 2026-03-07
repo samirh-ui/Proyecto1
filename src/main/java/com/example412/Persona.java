@@ -1,5 +1,7 @@
 package com.example412;
 
+import java.time.Year;
+
 public class Persona {
 
     public String nombre;
@@ -22,6 +24,13 @@ public class Persona {
         System.out.println("Apellidos: " + apellido);
         System.out.println("Número Documento: " + numeroDocumento);
         System.out.println("Año Nacimiento: " + añoNacimiento);
+        System.out.println("Edad: " + calcularEdad() + " años");
         System.out.println("----------------------------");
     }
+
+      public int calcularEdad() {
+        int añoActual = Year.now().getValue();
+        return añoActual - añoNacimiento;
+    }
+    
 }
